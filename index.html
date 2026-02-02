@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>be my valentine</title>
+</head>
+<body>
+    <header>
+        <h1>❤️TO THE MOST <BR> AMAZING WOMAN IN THE WORLD ❤️</h1>
+    </header>
+    <style>
+        *{
+            width:100%;
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            font: inherit;
+
+}
+
+
+        header{
+            color: blue;
+            background-color: rgb(236, 144, 144);
+            text-align:center ;
+
+        }
+        h1{
+            font-size: 30px;
+        }
+        h2{
+            font-size: 35px;
+            color: white;
+        }
+        p{
+            border: solid green;
+            margin: 20px 100px;
+            width: 400px;
+            background-color: greenyellow;
+            padding: 10px;
+        }
+        body{
+            display: block;
+            align-content: center;
+            justify-items: center;
+            text-align: center;
+            background-color:rgb(88, 88, 223);
+             background: url("IMG_0988.jpeg"); 
+             background-size: cover;
+             background-position: center center;
+             background-attachment: scroll;
+             background-repeat: no-repeat;
+        }
+        @media (max-width: 768px) {
+        body{
+        flex-direction: column; /* Stack vertically */
+        width: 100%; }
+        p{
+           text-align: center;
+           justify-content: center;
+           justify-self: center;
+        }
+    }
+
+        #imageDisplay{
+            width: 350px;
+            height: 350px;
+
+        }
+        #botton{
+            display: flex;
+            gap: 10px;
+            height: 60px;
+            width: 100px;
+            align-content: center;
+            justify-self: center;
+            text-align: center;
+            padding: 10px;
+        }
+        
+        #yesButton{
+            background-color: greenyellow;
+            justify-items: center;
+            align-items: center;
+            white-space-collapse: collapse;
+
+        }
+        #noButton{
+            background-color: red;
+            justify-items: center;
+            align-items: center;
+
+        }
+        .imgnote{
+            display: flex;
+            justify-self: center;
+        }
+    </style>
+    <body>
+        <img src="" alt="">
+    
+    <div class="hero_section">
+         <h2>Onaopemipo Deborah Arogundade🎀</h2>
+         <div class="imgnote">
+         <div>
+            <p>note💌: My queen, My love my happiness, my joy, cute bear🧸, You make me so happy. This is really important to me cause 
+                it is wheen you accepted me in your life(anivesary). i love and id always love you.
+                <br> loving you feels amazing and we do not see eye to eye all the time but despite our arguement my love 
+                nevEr fades. Arogundade deborah will you be my girl AND my Valentine?
+            </p>
+
+         </div>
+         </div>
+         
+         <div class="flex flex-col items-center p-4">
+      <img id="imageDisplay" src="image1.gif" alt="Cute kitten with flowers" class="rounded-md h-[300px]" style="object-fit: cover;">
+      <h2 id="valentineQuestion" style=" font-family: italics; color: rgb(24, 25, 25) ;">Will you be my Valentine?</h2>
+      <div id="botton">
+        <button id="yesButton" >
+          Yes
+        </button>
+        <button id="noButton">
+          No
+        </button>
+      </div>
+    </div>
+    </div>
+    <script type="module">
+    import confetti from 'https://cdn.skypack.dev/canvas-confetti';
+    const yesButton = document.getElementById('yesButton');
+    const noButton = document.getElementById('noButton');
+    const imageDisplay = document.getElementById('imageDisplay');
+    const valentineQuestion = document.getElementById('valentineQuestion');
+    const responseButtons = document.getElementById('responseButtons');
+  
+    let noClickCount = 0;
+    let buttonHeight = 48; // Starting height in pixels
+    let buttonWidth = 80;
+    let fontSize = 20; // Starting font size in pixels
+    const imagePaths = [
+      "image1.gif",
+      "image2.gif",
+      "image3.gif",
+      "image4.gif",
+      "image5.gif",
+      "image6.gif",
+      "image7.gif"
+    ];
+  
+    noButton.addEventListener('click', function() {
+      if (noClickCount < 5) {
+        noClickCount++;
+        imageDisplay.src = imagePaths[noClickCount];
+        buttonHeight += 35; // Increase height by 5px on each click
+        buttonWidth += 35;
+        fontSize += 25; // Increase font size by 1px on each click
+        yesButton.style.height = `${buttonHeight}px`; // Update button height
+        yesButton.style.width = `${buttonWidth}px`;
+        yesButton.style.fontSize = `${fontSize}px`; // Update font size
+        if (noClickCount < 6) {
+          noButton.textContent = ["No", "Are you sure?", "its not a choice", "now pick yes :(", "You're breaking my heart", "I'm gonna cry..."][noClickCount];
+        }
+      }
+    });
+  
+    yesButton.addEventListener('click', () => {
+      imageDisplay.src = 'image7.gif'; // Change to image7.gif
+      valentineQuestion.textContent = "Yayyy!! :3"; // Change the question text
+      responseButtons.style.display = 'none'; // Hide both buttons
+      confetti(); // Trigger confetti animation
+    });
+  </script>
+</body>
+</html>
